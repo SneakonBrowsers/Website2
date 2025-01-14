@@ -1,124 +1,54 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About SneakOn 1.5</title>
+    <title>Sneakon</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             color: white;
-            padding: 1rem 0;
-            text-align: center;
+            font-family: Arial, sans-serif;
         }
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #444;
-            padding: 1rem;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .feature {
-            background: white;
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .feature h2 {
-            color: #333;
-        }
-        .feature p {
-            color: #666;
-        }
-        footer {
-            background: #333;
-            color: white;
+            background-color: #2c2f33;
+            padding: 20px 40px;
+            border-radius: 10px;
             text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .dark-mode-toggle {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
+        .container h1 {
+            margin: 0;
+            font-size: 24px;
         }
-        .dark-mode-toggle button {
+        .container p {
+            margin: 10px 0 0;
+            font-size: 18px;
+            color: #b9bbbe;
+        }
+        .invite-button {
+            display: inline-block;
             padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        body.dark-mode {
-            background-color: #121212;
+            margin-top: 20px;
+            font-size: 16px;
             color: white;
-        }
-        body.dark-mode header, body.dark-mode footer, body.dark-mode nav {
-            background-color: #1e1e1e;
-        }
-        body.dark-mode .feature {
-            background: #333;
-            color: white;
-            box-shadow: none;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>About SneakOn 1.5</h1>
-    </header>
-    <nav>
-        <a href="#dark-mode">Dark Mode</a>
-        <a href="#sneakshop">SneakShop</a>
-        <a href="#bug-reporting">Bug Reporting</a>
-        <a href="#more">More Features</a>
-    </nav>
+<body class="page--scroll-up page--scrolled-to-top">
     <div class="container">
-        <div class="feature" id="dark-mode">
-            <h2>Dark Mode</h2>
-            <p>Experience a sleek new dark theme that's easier on the eyes, especially in low-light environments.</p>
-            
-        </div>
-        <div class="feature" id="sneakshop">
-            <h2>SneakShop</h2>
-            <p>Explore our new SneakShop, where you can purchase exclusive themes, extensions, and more to enhance your SneakOn experience.</p>
-        </div>
-        <div class="feature" id="bug-reporting">
-            <h2>Bug Reporting</h2>
-            <p>Help us improve SneakOn by reporting any bugs you encounter. Simply click the 'Report a Bug' button and fill out the form.</p>
-        </div>
-        <div class="feature" id="more">
-            <h2>More Features</h2>
-            <p>Stay tuned for more exciting features in SneakOn 1.5, designed to make your browsing experience better than ever!</p>
-        </div>
+        
+        <h1>Imaginated, Created</h1>
+        <p>Sneakon browser has a new WIP homepage.</p>
+        <a href="https://sneakonbrowsers.github.io/Website2/Download" class="invite-button">Join Now</a>
     </div>
-    <footer>
-        <p>2025 SneakOn.</p>
-    </footer>
-
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
 
 
-</body><body></body></html>
+</body></html>
