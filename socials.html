@@ -65,7 +65,7 @@
             padding: 20px;
             border: 1px solid #444;
             width: 80%;
-            max-width: 400px;
+            max-width: 600px;
             color: #fff;
             text-align: center;
         }
@@ -81,15 +81,18 @@
             text-decoration: none;
             cursor: pointer;
         }
+        .video-list {
+            text-align: left;
+        }
     </style>
 </head>
 <body>
     <a href="https://sneakonbrowsers.github.io" class="top-right">X</a>
     <h1>Social Media</h1>
     <div>
-        <a href="#" onclick="showModal('https://reddit.com/r/sneakon');">Reddit</a><br>
-        <a href="#" onclick="showModal('https://discord.gg/vGWcC4hYxC');">Discord</a><br>
-        <a href="#" onclick="showModal('https://youtube.com/@SneakonSearch');">YouTube</a>
+        <a href="https://reddit.com/r/sneakon">Reddit</a><br>
+        <a href="https://discord.gg/vGWcC4hYxC">Discord</a><br>
+        <a href="#" onclick="showVideoModal();">YouTube</a>
     </div>
     <div class="cookie-banner">
         <p>We use cookies to improve your experience. By using our site, you agree to our use of cookies. 
@@ -98,35 +101,52 @@
         </p>
     </div>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal();">&times;</span>
-            <p>This link will take you to an external website.</p>
-            <button class="button" id="continueButton">Continue</button>
+            <span class="close" onclick="closeVideoModal();">&times;</span>
+            <p>Videos from Sneakon YouTube Channel:</p>
+            <div id="video-list" class="video-list"></div>
         </div>
     </div>
 
     <script>
-        function showModal(url) {
-            var modal = document.getElementById('modal');
-            var continueButton = document.getElementById('continueButton');
-            continueButton.onclick = function() {
-                window.open(url, '_blank');
-                closeModal();
-            };
+        function showVideoModal() {
+            fetchVideos();
+            var modal = document.getElementById('video-modal');
             modal.style.display = "flex";
         }
 
-        function closeModal() {
-            var modal = document.getElementById('modal');
+        function closeVideoModal() {
+            var modal = document.getElementById('video-modal');
             modal.style.display = "none";
+        }
+
+        function fetchVideos() {
+            var apiKey = 'AIzaSyBPE7244usOc7NzYN9Cr9QEGl05qLTgqbc';
+            var channelId = 'UCDX9rOVFOyU7C6478vXwevg'; // Replace this with the actual channel ID for @SneakonBrowsers
+            var url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&type=video&order=date&maxResults=10`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    var videoList = document.getElementById('video-list');
+                    videoList.innerHTML = '';
+                    data.items.forEach(item => {
+                        var videoItem = document.createElement('div');
+                        videoItem.innerHTML = `<p>${item.snippet.title}</p><a href="https://www.youtube.com/watch?v=${item.id.videoId}" target="_blank">Watch on YouTube</a>`;
+                        videoList.appendChild(videoItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Fetching YouTube videos failed:', error);
+                });
         }
 
         function acceptCookies() {
             var cookieBanner = document.querySelector('.cookie-banner');
             cookieBanner.style.display = 'none';
         }
-    </script>
+        </script>
 </body>
 </html>
