@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Redirect</title>
+</head>
+<body>
+    <h1>Allow Location Permission</h1>
+    <div id="message">Please allow access to your location to proceed with the download.</div>
+    <script>
+        // Function to request location permission
+        function requestLocationPermission() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => window.location.replace("https://example.com"),
+                    (error) => document.getElementById('message').textContent = "Please allow location permission to access the download.",
+                    { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+                );
+            } else {
+                document.getElementById('message').textContent = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        // Request location permission on page load
+        window.onload = requestLocationPermission;
+    </script>
+</body>
+</html>
